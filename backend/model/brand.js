@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const schema = mongoose.Schema({
-    brandId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"Brand"
-    },
     brandName: {
         type: String,
         required: [true, "Brand name is required"],
