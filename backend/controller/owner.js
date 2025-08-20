@@ -7,7 +7,7 @@ import Showroom from "../model/showroom.js";
 
 const storage = multer.memoryStorage();
 const upload=multer({storage})
-const addCeo = async (req, res) => {
+const addCeo = async (req, res,next) => {
     try {
         let { name, role, email, password, brandName } = req.body;
         if (!name || !role || !email || !password) {
@@ -36,7 +36,9 @@ const addCeo = async (req, res) => {
         await Brand.updateOne({ _id:brandId },{ ceoId: newCeo._id })        
         res.status(200).json(`CEO ${name} added succesfully`)
     } catch (err) {
-        res.status(400).json("Faied to add ceo "+err);
+        let error = new Error(`Falied to add ceo ${err}`);
+        error.status = 400;
+        next(error);
     }
 }
 
@@ -52,7 +54,9 @@ const addBrand = async (req, res)=>{a
         await newBrand.save();
         res.status(200).json("New brand " + brandName + " is added to db");
     } catch (err) {
-        res.status(400).json(`Failed to add brand ${err}`);
+        let error = new Error(`Falied to add brand ${err}`);
+        error.status = 400;
+        next(error);
    }
 }
 
