@@ -9,7 +9,8 @@ const schema = mongoose.Schema({
         type: String,
         required: [true, "Brand name is required"],
         unique: [true, "Brand name must be unique enter another one"],
-        minlength:[4,"Brand name should atleast contain 4 chars"],
+        minlength: [4, "Brand name should atleast contain 4 chars"],
+        trim:true,
     },
     showrooms: {
         type: mongoose.Schema.Types.ObjectId,
@@ -20,7 +21,8 @@ const schema = mongoose.Schema({
     },
     description: {
         type: String,
-        minlength:[20,"Description must be grater than 20 characters"]
+        minlength: [20, "Description must be grater than 20 characters"],
+        trim:true,
     },
     ceoId: {
         type: mongoose.Schema.Types.ObjectId,

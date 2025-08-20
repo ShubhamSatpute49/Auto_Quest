@@ -5,7 +5,8 @@ const schema = mongoose.Schema({
         type: String,
         required: [true, "Name is required"],
         minlength: [5, "Name should contain atleast 5 characters"],
-        maxlength: [50,"Name should not excced 50 characters"]
+        maxlength: [50, "Name should not excced 50 characters"],
+        trim:true,
     },
     role: {
         type: String,

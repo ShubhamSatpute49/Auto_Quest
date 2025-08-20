@@ -12,6 +12,7 @@ const schema = mongoose.Schema({
     model: {
         type: String,
         required: [true, "Model is required"],
+        trim:true,
     },
     price: {
         type: Number,

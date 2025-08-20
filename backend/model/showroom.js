@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 const schema = mongoose.Schema({
     showroomName: {
         type: String,
-        required: [true,"showroom Name is required"]
+        required: [true, "showroom Name is required"],
+        trim:true,
     },
     brandId:{
         type: mongoose.Schema.Types.ObjectId,
