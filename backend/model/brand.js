@@ -2,10 +2,8 @@ import mongoose from "mongoose";
 
 const schema = mongoose.Schema({
     brandId: {
-        type: String,
-        required: [true,"Brand id is required"],
-        minlength: [8, "Brand id should have minimum 8 characters"],
-        unique: [true,"Brand id should be unique enter another one"],
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Brand"
     },
     brandName: {
         type: String,
